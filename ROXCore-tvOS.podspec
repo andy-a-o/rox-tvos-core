@@ -15,15 +15,14 @@ Pod::Spec.new do |s|
                    }
   s.documentation_url = "http://support.rollout.io/"
 
-  s.requires_arc = true
+  s.source       = { :git => "https://github.com/rollout/rox-core-spm.git", :tag => "#{s.version}" }
 
-  s.ios.vendored_frameworks = 'RoxSdk/ROXCore.framework'
-  s.tvos.vendored_frameworks = 'RoxSdk/ROXCore.framework'
+  s.vendored_frameworks = "ROXCore.xcframework"
 
-  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(inherited)' }
+  s.platform = :tvos
 
-  s.source       = { :git => "https://github.com/rollout/rox-tvos-core.git", :tag => "5.0.10" }
-  s.preserve_paths = "lib/**/*", "install/**/*"
   s.swift_version = '4.0'
+
   s.tvos.deployment_target  = '10.0'
+
 end
